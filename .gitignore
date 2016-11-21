@@ -37,7 +37,7 @@ captures/
 .idea/
 
 # Windows
-.DS_Store
+*.DS_Store
 
 # Keystore files
 *.jks
