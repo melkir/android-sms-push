@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SMS Push</string>
+    <string name="permission_sms_rationale">Access to the send sms is needed for this application to work properly</string>
+    <string name="ok">OK</string>
 </resources>
