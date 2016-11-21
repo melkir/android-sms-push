@@ -2,8 +2,8 @@
 Turns your android phone into powerful gateway and send sms from your computer.
 
 # How it works
-The application translates Firebase Cloud Messaging (FCM) events into outgoing SMS messages on your phone.  
-![pushsms](https://cloud.githubusercontent.com/assets/3305685/20503928/36c1a70a-b045-11e6-8f71-f8dd2f6dbcae.png)
+The application translates Firebase Cloud Messaging (FCM) events into outgoing SMS messages on your phone.
+[Click to view the schema]:(https://www.draw.io/?chrome=0&lightbox=1&nav=1#G0ByCIG2i-6TRKSnFmV3BQaDZGVkU)
 
 # Getting Started
 * Clone this repository
