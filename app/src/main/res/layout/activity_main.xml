@@ -11,7 +11,16 @@
     tools:context="com.melkir.smspush.MainActivity">
 
     <TextView
+        android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
+    <Button
+        android:id="@+id/logTokenButton"
+        android:layout_width="@dimen/standard_field_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hello"
+        android:text="@string/log_token" />
+
 </RelativeLayout>

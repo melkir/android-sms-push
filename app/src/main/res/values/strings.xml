@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SMS Push</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string name="permission_sms_rationale">Access to the send sms is needed for this application to work properly</string>
     <string name="ok">OK</string>
+    <string name="log_token">Log Token</string>
 </resources>
