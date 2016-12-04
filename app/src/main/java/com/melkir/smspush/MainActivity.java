@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -25,22 +24,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        checkSMSPermission();
+        handleOnResumeNotification();
+    }
 
-        // Check for the sms permission before accessing sending sms. If the
-        // permission is not granted yet, request permission.
+    /**
+     * Check for the sms permission before accessing sending sms. If the
+     * permission is not granted yet, request permission.
+     */
+    private void checkSMSPermission() {
         int rc = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS);
         if (rc != PackageManager.PERMISSION_GRANTED) {
             requestSendSMSPermission();
         }
+    }
 
-        // If a notification message is tapped, any data accompanying the notification
-        // message is available in the intent extras. In this sample the launcher
-        // intent is fired when the notification is tapped, so any accompanying data would
-        // be handled here. If you want a different intent fired, set the click_action
-        // field of the notification message to the desired intent. The launcher intent
-        // is used when no click_action is specified.
-        //
-        // Handle possible data accompanying notification message.
+    /**
+     * If a notification message is tapped, any data accompanying the notification
+     * message is available in the intent extras. In this sample the launcher
+     * intent is fired when the notification is tapped, so any accompanying data would
+     * be handled here. If you want a different intent fired, set the click_action
+     * field of the notification message to the desired intent. The launcher intent
+     * is used when no click_action is specified.
+     * Handle possible data accompanying notification message.
+     */
+    private void handleOnResumeNotification() {
         if (getIntent().getExtras() != null) {
             for (String key : getIntent().getExtras().keySet()) {
                 Object value = getIntent().getExtras().get(key);
@@ -53,24 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 sendSMS(phoneNumber, smsBody);
             }
         }
-
-        Button logTokenButton = (Button) findViewById(R.id.logTokenButton);
-        logTokenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get token
-                String token = FirebaseInstanceId.getInstance().getToken();
-
-                // Log and toast
-                String msg = getString(R.string.msg_token_fmt, token);
-                Log.d(TAG, msg);
-                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void sendSMS(String phoneNumber, String smsBody) {
-        smsManager.sendTextMessage(phoneNumber, "FCM", smsBody, null, null);
     }
 
     /**
@@ -102,5 +92,17 @@ public class MainActivity extends AppCompatActivity {
         Snackbar.make(v, R.string.permission_sms_rationale, Snackbar.LENGTH_INDEFINITE)
                 .setAction(R.string.ok, listener)
                 .show();
+    }
+
+    private void sendSMS(String phoneNumber, String smsBody) {
+        smsManager.sendTextMessage(phoneNumber, "FCM", smsBody, null, null);
+    }
+
+    public void logToken(View view) {
+        String token = FirebaseInstanceId.getInstance().getToken();
+        // Log and toast
+        String msg = getString(R.string.msg_token_fmt, token);
+        Log.d(TAG, msg);
+        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 }

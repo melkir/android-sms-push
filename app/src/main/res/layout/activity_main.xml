@@ -20,6 +20,7 @@
         android:id="@+id/logTokenButton"
         android:layout_width="@dimen/standard_field_width"
         android:layout_height="wrap_content"
+        android:onClick="logToken"
         android:layout_below="@id/hello"
         android:text="@string/log_token" />
 
