@@ -10,17 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.melkir.smspush.SMSActivity">
 
-    <Switch
-        android:id="@+id/switch_sync_sms"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/synchronize_sms" />
-
     <Button
         android:id="@+id/btn_log_token"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/switch_sync_sms"
         android:onClick="logToken"
         android:text="@string/log_token" />
 
