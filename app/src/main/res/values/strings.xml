@@ -4,4 +4,9 @@
     <string name="permission_sms_rationale">Access to the send sms is needed for this application to work properly</string>
     <string name="ok">OK</string>
     <string name="log_token">Log Token</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="sign_in_cancelled">Sign in cancelled</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="synchronize_sms">Sync SMS</string>
 </resources>
